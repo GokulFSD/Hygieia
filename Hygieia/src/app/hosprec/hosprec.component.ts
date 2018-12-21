@@ -12,11 +12,11 @@ export class HosprecComponent implements OnInit {
   clickMessage="";
   servicedata="";
   constructor(private Form:SawtoothService) { 
-    console.log("Inside page component.ts")
+    console.log("Inside recipient page component.ts")
   }
   ngOnInit() {
   }
-  addForm(btype:string,otype:string){
+  submit(btype:string,otype:string){
    // event.preventDefault();
    
     this.clickMessage="btype+otype"+btype+otype;

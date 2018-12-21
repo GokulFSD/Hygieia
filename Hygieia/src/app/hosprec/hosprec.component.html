@@ -7,7 +7,7 @@
 
       <label class="control-label col-sm-2" id="name">Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="name" name='name' ngModel required>
+        <input type="text" class="form-control" id="name" placeholder="name" name='name' ngModel required pattern="^[a-zA-Z\.]*$">
       </div>
     </div>
     <div class="form-group">
@@ -16,14 +16,35 @@
         <input type="date" class="form-control" id="date" placeholder="Date" ngModel name='date'>
       </div>
     </div>
+    <div class="form-group col-sm-2">
+        <label class="form-check-label">Gender:</label></div>
+        <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Male
+      </label>
+    </div>
+    <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Female
+      </label>
+    </div>
+    <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Other
+      </label>
+    </div> 
     <div class="form-group">
       <label class="control-label col-sm-2" id="btype">Blood Type:</label>
       <div class="col-sm-10">
-            <select class="form-control" id="btype" #btype type="text" ngModel name='btype'>
-              <option>A</option>
-              <option>B</option>
-              <option>AB</option>
-              <option>O</option>
+            <select class="form-control" id="btype" #btype type="text" ngModel name='btype' ngModel required>
+              <option>A+</option>
+                <option>A-</option>
+                <option>B-</option>
+                <option>B+</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O-</option>
+                <option>O+</option>
             </select>
             <br>
       </div>
@@ -35,9 +56,10 @@
             <option>Lung</option>
             <option>Kidney</option>
             <option>Liver</option>
-            <option>Eye</option>
+            <option>Eye(corneas)</option>
             <option>Pancreas</option>
             <option>Intestine</option>
+            <option>Larynx</option>
           </select>
       </div>
     </div>
@@ -71,7 +93,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="button" class="btn btn-primary" (click)="addForm(btype.value,otype.value)">Submit</button>
+        <button type="button" class="btn btn-primary" [disabled]="!f.valid" onclick="submit(otype.value,btype.value)">Submit</button>
       </div>
     </div>
   </form>

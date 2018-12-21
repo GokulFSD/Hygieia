@@ -5,28 +5,50 @@
 <br/><legend><p class="p1">Enter Details of Donor</p></legend><br/>
 <div class="container">
 
-  <form  class="form-horizontal" >
+  <form  class="form" >
     <div class="form-group">
 
       <label class="control-label col-sm-2" id="name">Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" placeholder="name">
+        <input type="text" class="form-control" id="name" placeholder="name" name='name' ngModel required pattern="^[a-zA-Z\.]*$">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" id="Date">Date of Birth:</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control" id="Date" placeholder="Date">
+        <input type="date" class="form-control" id="Date" placeholder="Date" name='date' ngModel required>
       </div>
     </div>
+    
+    <div class="form-group col-sm-2">
+        <label class="form-check-label">Gender:</label></div>
+        <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Male
+      </label>
+    </div>
+    <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Female
+      </label>
+    </div>
+    <div class="form-check-inline ">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optradio">Other
+      </label>
+    </div> 
     <div class="form-group">
       <label class="control-label col-sm-2" id="btype">Blood Type:</label>
       <div class="col-sm-10">
-              <select class="form-control" id="btype" ngModel name='btype'>
-                <option>A</option>
-                <option>B</option>
-                <option>AB</option>
-                <option>O</option>
+              <select class="form-control" id="btype" #btype type="text" name='btype' ngModel required>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B-</option>
+                <option>B+</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O-</option>
+                <option>O+</option>
               </select>
               <br>
         </div>
@@ -34,11 +56,12 @@
       <div class="form-group">
         <label class="control-label col-sm-5" id="otype">Organ to be recieved</label>
         <div class="col-sm-10">
-          <select class="form-control" id="otype" ngModel name='otype'>
+          <select class="form-control" id="otype" #otype type="text" name='otype' ngModel required>
               <option>Lung</option>
               <option>Kidney</option>
               <option>Liver</option>
-              <option>Eye</option>
+              <option>Eye(corneas)</option>
+              <option>Larynx</option>
               <option>Pancreas</option>
               <option>Intestine</option>
             </select>
@@ -56,13 +79,13 @@
     <div class="form-group">
       <label class="control-label col-sm-2" id="cno">Enter Contact No:</label>
       <div class="col-sm-10">
-        <input type="tel" class="form-control" id="cno" placeholder="Contact Number">
+        <input type="tel" class="form-control" id="cno" placeholder="Contact Number" name="tel">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" id="cid">Contact Info:</label>
       <div class="col-sm-10">
-        <input type="textarea" class="form-control" id="cid" placeholder="enter Contact information">
+        <input type="textarea" class="form-control" id="cid" placeholder="enter Contact information" name="cid">
       </div>
     </div>
     <div class="form-group">
@@ -74,9 +97,12 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-primary"  (click)="addForm(btype.value,otype.value)">Submit</button>
       </div>
     </div>
   </form>
 </div>
+
+<p>{{clickMessage}}</p>
+<p> {{servicedata}}</p>
 
