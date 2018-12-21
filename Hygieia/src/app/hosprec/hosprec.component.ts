@@ -16,7 +16,7 @@ export class HosprecComponent implements OnInit {
   }
   ngOnInit() {
   }
-  submit(btype:string,otype:string){
+  addForm(btype:string,otype:string){
    // event.preventDefault();
    
     this.clickMessage="btype+otype"+btype+otype;

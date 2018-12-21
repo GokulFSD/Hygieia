@@ -21,6 +21,14 @@ const MIN_VALUE = 0
 const CJ_FAMILY = 'hygieia'
 const CJ_NAMESPACE = _hash(CJ_FAMILY).substring(0, 6)
 
+//function to set the entries in the block using the "SetState" function
+const _setEntry = (context, address, stateValue) => {
+  let dataBytes = encoder.encode(stateValue)
+  let entries = {
+    [address]: dataBytes 
+  }
+  return context.setState(entries)
+}
 
 class HygieiaHandler extends TransactionHandler{
 
@@ -36,7 +44,7 @@ class HygieiaHandler extends TransactionHandler{
         }
         return payloadDecoded
       }
-
+      
     apply(transacationProcessRequest,context){
         
              //payload decoding*****
@@ -75,5 +83,16 @@ class HygieiaHandler extends TransactionHandler{
           
     }
 
+
+payloadDecoder(payload){
+  let decodedPayload = payload.toString().split(',')
+  return decodedPayload
+}
+
+getAddress(request){
+  let requestHeader = request.header
+  let requestSignerPublicKey = requestHeader.signerPublicKey
+  return requestSignerPublicKey
+}
 }
 module.exports = HygieiaHandler;

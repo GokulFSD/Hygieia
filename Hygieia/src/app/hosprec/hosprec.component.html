@@ -13,7 +13,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" id="date">Date of Birth:</label>
       <div class="col-sm-10">
-        <input type="date" class="form-control" id="date" placeholder="Date" ngModel name='date'>
+        <input type="date" class="form-control" id="date" placeholder="Date"  name='date' ngModel required>
       </div>
     </div>
     <div class="form-group col-sm-2">
@@ -69,19 +69,19 @@
     <div class="form-group">
       <label class="control-label col-sm-2" id="idproof">Enter Identity No:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="idproof" placeholder="enter government given identity proof (aadhar preferred)" ngModel name='idproof'>
+        <input type="text" class="form-control" id="idproof" placeholder="enter government given identity proof (aadhar preferred)"  name='idproof' ngModel required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" id="cno">Enter Contact No:</label>
       <div class="col-sm-10">
-        <input type="tel" class="form-control" id="cno" placeholder="Contact Number" ngModel name='cno'>
+        <input type="tel" class="form-control" id="cno" placeholder="Contact Number"  name='cno' ngModel required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" id="cid">Contact Info:</label>
       <div class="col-sm-10">
-        <input type="textarea" class="form-control" id="cid" placeholder="enter Contact information" ngModel name='cid'>
+        <input type="textarea" class="form-control" id="cid" placeholder="enter Contact information"  name='cid' ngModel required>
       </div>
     </div>
     <div class="form-group">
@@ -93,7 +93,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="button" class="btn btn-primary" [disabled]="!f.valid" onclick="submit(otype.value,btype.value)">Submit</button>
+        <button type="button" class="btn btn-primary"  (click)="addForm(otype.value,btype.value)">Submit</button>
       </div>
     </div>
   </form>
