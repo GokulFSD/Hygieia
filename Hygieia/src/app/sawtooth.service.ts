@@ -19,7 +19,7 @@ import { TextEncoder, TextDecoder} from 'text-encoding/lib/encoding';
 })
 export class SawtoothService {
 
-  private Family_name='hygeia';
+  private Family_name='hygieia';
   private Family_version='1.0';
   private Rest_api_base_url='http://localhost:4200/api';
 
@@ -131,7 +131,7 @@ private getBatchList(transactionsList) {
   // Post batch list to rest api
   private postBatchList(batchListBytes) {
     // Complete here
-      return window.fetch('http://localhost:4201/api/batches', {
+      return window.fetch('http://localhost:4200/api/batches', {
       method: 'POST',
       headers: {
       'Content-Type': 'application/octet-stream'
